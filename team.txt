@@ -5,3 +5,5 @@ Team Members
 --------------------
 Zachariah Sutherland
 Nefi Raul Serrano Ramirez
+Walter Stamm
+Matt Felber
