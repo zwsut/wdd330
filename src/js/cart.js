@@ -1,4 +1,4 @@
-import { getLocalStorage } from './utils.mjs';
+import { getLocalStorage, updateCartCount } from './utils.mjs';
 
 function renderCartContents() {
   // Get the cart items from localStorage or use an empty array if none exist
@@ -33,3 +33,5 @@ function cartItemTemplate(item) {
 
 // Call this to render cart contents on page load
 renderCartContents();
+
+document.addEventListener("DOMContentLoaded", updateCartCount);
