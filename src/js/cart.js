@@ -31,7 +31,39 @@ function cartItemTemplate(item) {
   return newItem;
 }
 
+
+// Función para calcular el total del carrito
+function calculateCartTotal() {
+  const cartItems = JSON.parse(localStorage.getItem('so-cart')) || [];
+  let total = 0;
+  
+  cartItems.forEach(item => {
+    total += item.FinalPrice;
+  });
+  return total.toFixed(2);
+}
+
+function updateTotalCart() {
+  const cartFooter = document.querySelector('.cart-footer');
+  const cartItems = JSON.parse(localStorage.getItem('so-cart')) || [];
+  
+  if (cartItems.length > 0) {
+    const total = calculateCartTotal();
+    document.getElementById('cart-total-amount').textContent = total;
+    cartFooter.classList.remove('hide');
+  } else {
+    cartFooter.classList.add('hide');
+  }
+}
+
+
 // Call this to render cart contents on page load
 renderCartContents();
 
 document.addEventListener('DOMContentLoaded', updateCartCount);
+document.addEventListener('DOMContentLoaded', updateTotalCart);
+window.addEventListener('storage', function(e) {
+  if (e.key === 'so-cart') {
+    updateTotalCart();
+  }
+});
