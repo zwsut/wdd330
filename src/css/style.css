@@ -101,6 +101,7 @@ button {
   padding-top: 1em;
   position: relative;
   text-align: center;
+  display: inline-block;
 }
 
 .cart svg {
@@ -108,6 +109,28 @@ button {
 }
 .cart:hover svg {
   fill: gray;
+}
+
+.cart-count {
+  position: absolute;
+  top: 5px; /* Adjust this value to position the badge vertically */
+  right: -10px; /* Adjust this value to position it horizontally */
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px;
+  font-size: 12px;
+  font-weight: bold;
+
+  /* Fix width and center text */
+  width: 20px; /* Set a fixed width to prevent the shift */
+  height: 20px; /* Ensures consistent height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center; /* Ensure the number is centered */
+  line-height: 20px; /* Make the text align vertically within the circle */
+  color: white; /* Ensure the number is visible on red background */
 }
 
 /* End cart icon styles */

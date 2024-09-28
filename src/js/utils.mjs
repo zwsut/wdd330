@@ -22,24 +22,6 @@ export function getParam(param) {
   return product;
 }
 
-// function to take a list of objects and a template and insert the objects as HTML into the DOM
-
-export function renderListWithTemplate(
-  templateFn,
-  parentElement,
-  list,
-  position = "afterbegin",
-  clear = false
-) {
-  const htmlStrings = list.map(templateFn);
-  // if clear is true we need to clear out the contents of the parent.
-  if (clear) {
-    parentElement.innerHTML = "";
-  }
-  parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
-}
-
-// set a listener for both touchend and click
 export function setClick(selector, callback) {
   qs(selector).addEventListener("touchend", (event) => {
     event.preventDefault();
@@ -47,3 +29,28 @@ export function setClick(selector, callback) {
   });
   qs(selector).addEventListener("click", callback);
 }
+
+export function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear = false) {
+  // If clear is true, empty the parent element before inserting new content
+  if (clear) {
+    parentElement.innerHTML = ''; 
+  }
+  
+  // Map over the list and create HTML strings using the provided template function
+  const htmlStrings = list.map(templateFn);
+  
+  parentElement.insertAdjacentHTML(position, htmlStrings.join(''));
+}
+
+export function updateCartCount() {
+  // Retrieve the cart items from localStorage, or default to an empty array if none exist
+  const cartItems = JSON.parse(localStorage.getItem("so-cart")) || [];
+
+  // Get the cart count element in the DOM
+  const cartCountElement = document.getElementById("cart-count");
+
+  // Update the cart count with the length of the cart array (number of items)
+  cartCountElement.textContent = cartItems.length;
+}
+
+
