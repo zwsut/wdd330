@@ -7,4 +7,4 @@ const dataSource = new ProductData('tents');
 const productList = new ProductListing('tents', dataSource, '.product-list');
 productList.init();
 
-document.addEventListener("DOMContentLoaded", updateCartCount);
+document.addEventListener('DOMContentLoaded', updateCartCount);

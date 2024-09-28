@@ -34,4 +34,4 @@ function cartItemTemplate(item) {
 // Call this to render cart contents on page load
 renderCartContents();
 
-document.addEventListener("DOMContentLoaded", updateCartCount);
+document.addEventListener('DOMContentLoaded', updateCartCount);

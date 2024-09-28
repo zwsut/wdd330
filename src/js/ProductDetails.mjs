@@ -40,15 +40,24 @@ export default class ProductDetails {
 
   addToCart() {
     // Retrieve the cart from localStorage
-    const currentCart = JSON.parse(localStorage.getItem("so-cart")) || [];
+    let currentCart = JSON.parse(localStorage.getItem("so-cart"));
   
-    console.log('Current cart:', currentCart); // Debugging
+    // Log what currentCart contains for debugging
+    console.log('Current Cart:', currentCart);
   
-    // Add the current product to the cart array
+    // If currentCart is not an array (i.e., it could be an object or null), reset it to an empty array
+    if (!Array.isArray(currentCart)) {
+      currentCart = [];
+    }
+  
+    // Add the product to the cart array
     currentCart.push(this.product);
   
     // Save the updated cart array back to localStorage
     localStorage.setItem("so-cart", JSON.stringify(currentCart));
+  
+    // Log the updated cart
+    console.log('Updated Cart:', currentCart);
   
     // Optionally update the cart count display
     updateCartCount();
