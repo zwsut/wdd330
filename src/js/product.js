@@ -1,4 +1,3 @@
-
 import { getParam, updateCartCount } from './utils.mjs';
 
 import ProductData from './ProductData.mjs';
