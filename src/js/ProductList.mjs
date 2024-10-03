@@ -1,4 +1,4 @@
-import { renderListWithTemplate } from './utils.mjs'; // Import the utility function
+import { renderListWithTemplate } from './utils.mjs';
 
 export default class ProductListing {
     constructor(category, dataSource, listElement) {
@@ -9,18 +9,17 @@ export default class ProductListing {
   
     async init() {
       try {
-        const products = await this.dataSource.getData(); // Fetch the product data
-        const filteredProducts = this.filterProducts(products); // Filter the products to the ones with specific IDs
-        this.renderList(filteredProducts); // Render the filtered product list
+        const products = await this.dataSource.getData();
+        const filteredProducts = this.filterProducts(products);
+        this.renderList(filteredProducts);
       } catch (error) {
         console.error('Error fetching product data:', error);
       }
     }
   
-    // Method to filter the product list by specific IDs
     filterProducts(products) {
-      const requiredIds = ['880RR', '985RF', '985PR', '344YJ']; // The list of specific IDs you need
-      return products.filter(product => requiredIds.includes(product.Id)); // Filter products by matching IDs
+      const requiredIds = ['880RR', '985RF', '985PR', '344YJ'];
+      return products.filter(product => requiredIds.includes(product.Id));
     }
   
     renderList(products) {

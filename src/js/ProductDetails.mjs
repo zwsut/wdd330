@@ -26,40 +26,24 @@ export default class ProductDetails {
   }
 
   async init() {
-    // use our datasource to get the details for the current product. findProductById will return a promise! use await or .then() to process it
     this.product = await this.dataSource.findProductById(this.productId);
-    
-    // once we have the product details we can render out the HTML
     this.renderProductDetails("main");
     
-    // once the HTML is rendered we can add a listener to Add to Cart button
     document
       .getElementById("addToCart")
       .addEventListener("click", this.addToCart.bind(this));
   }
 
   addToCart() {
-    // Retrieve the cart from localStorage
     let currentCart = JSON.parse(localStorage.getItem("so-cart"));
   
-    // Log what currentCart contains for debugging
-    console.log('Current Cart:', currentCart);
-  
-    // If currentCart is not an array (i.e., it could be an object or null), reset it to an empty array
     if (!Array.isArray(currentCart)) {
       currentCart = [];
     }
-  
-    // Add the product to the cart array
+
     currentCart.push(this.product);
-  
-    // Save the updated cart array back to localStorage
     localStorage.setItem("so-cart", JSON.stringify(currentCart));
   
-    // Log the updated cart
-    console.log('Updated Cart:', currentCart);
-  
-    // Optionally update the cart count display
     updateCartCount();
   }
 
