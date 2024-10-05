@@ -1,11 +1,12 @@
 import { setLocalStorage, updateCartCount } from "./utils.mjs";
 
 function productDetailsTemplate(product) {
+  console.log(product)  
   return `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
     <h2 class="divider">${product.NameWithoutBrand}</h2>
     <img
       class="divider"
-      src="${product.Image}"
+      src="${product.Images.PrimaryLarge}"
       alt="${product.NameWithoutBrand}"
     />
     <p class="product-card__price">$${product.FinalPrice}</p>
@@ -27,6 +28,7 @@ export default class ProductDetails {
 
   async init() {
     this.product = await this.dataSource.findProductById(this.productId);
+    console.log(this.product)
     this.renderProductDetails("main");
     
     document
@@ -48,6 +50,7 @@ export default class ProductDetails {
   }
 
   renderProductDetails(selector) {
+    console.log(this.product,'pasa por renderProductDetails')
     const element = document.querySelector(selector);
     element.insertAdjacentHTML("afterBegin", productDetailsTemplate(this.product));
   }

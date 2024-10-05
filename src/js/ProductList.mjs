@@ -4,15 +4,17 @@ export default class ProductListing {
     constructor(category, dataSource, listElement) {
       this.category = category;
       this.dataSource = dataSource;
-      this.listElement = document.querySelector(listElement);
+      this.listElement = listElement;
     }
   
     async init() {
       try {
-        const products = await this.dataSource.getData();
-        const filteredProducts = this.filterProducts(products);
-        this.renderList(filteredProducts);
+        const list = await this.dataSource.getData(this.category);
+        console.log(list)
+        // const filteredProducts = this.filterProducts(list);
+        this.renderList(list);
       } catch (error) {
+        
         console.error('Error fetching product data:', error);
       }
     }
@@ -30,10 +32,11 @@ export default class ProductListing {
 
 
   export function productCardTemplate(product) {
+    console.log(product)
     return `
       <li class="product-card">
-        <a href="product_pages/index.html?product=${product.Id}">
-          <img src="${product.Image}" alt="Image of ${product.Name}">
+        <a href="/product_pages/index.html?product=${product.Id}">
+          <img src="${product.Images.PrimaryMedium}" alt="Image of ${product.Name}">
           <h3 class="card__brand">${product.Brand.Name}</h3>
           <h2 class="card__name">${product.Name}</h2>
           <p class="product-card__price">$${product.FinalPrice}</p>
