@@ -9,7 +9,13 @@ function productDetailsTemplate(product) {
       src="${product.Images.PrimaryLarge}"
       alt="${product.NameWithoutBrand}"
     />
-    <p class="product-card__price">$${product.FinalPrice}</p>
+    ${product.FinalPrice < product.SuggestedRetailPrice ? 
+      `<p class="product-card__price product-card__price--discounted">
+        <s class="original-price">$${product.SuggestedRetailPrice}</s> 
+        <span class="discounted-price">$${product.FinalPrice}</span>
+      </p>` : 
+      `<p class="product-card__price">$${product.FinalPrice}</p>`
+    }
     <p class="product__color">${product.Colors[0].ColorName}</p>
     <p class="product__description">
     ${product.DescriptionHtmlSimple}
@@ -28,7 +34,6 @@ export default class ProductDetails {
 
   async init() {
     this.product = await this.dataSource.findProductById(this.productId);
-    console.log(this.product)
     this.renderProductDetails("main");
     
     document
@@ -50,7 +55,6 @@ export default class ProductDetails {
   }
 
   renderProductDetails(selector) {
-    console.log(this.product,'pasa por renderProductDetails')
     const element = document.querySelector(selector);
     element.insertAdjacentHTML("afterBegin", productDetailsTemplate(this.product));
   }
