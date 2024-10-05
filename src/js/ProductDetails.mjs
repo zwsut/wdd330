@@ -42,17 +42,22 @@ export default class ProductDetails {
   }
 
   addToCart() {
-    let currentCart = JSON.parse(localStorage.getItem("so-cart"));
+    let currentCart = JSON.parse(localStorage.getItem("so-cart")) || [];
   
-    if (!Array.isArray(currentCart)) {
-      currentCart = [];
+    const existingProduct = currentCart.find(item => item.Id === this.product.Id);
+  
+    if (existingProduct) {
+      existingProduct.quantity = existingProduct.quantity ? existingProduct.quantity + 1 : 2;
+    } else {
+      this.product.quantity = 1;
+      currentCart.push(this.product);
     }
-
-    currentCart.push(this.product);
+  
     localStorage.setItem("so-cart", JSON.stringify(currentCart));
   
     updateCartCount();
   }
+  
 
   renderProductDetails(selector) {
     const element = document.querySelector(selector);
