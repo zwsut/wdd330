@@ -260,6 +260,13 @@ button {
   height: 100px;
 }
 
+/* Discounted price styles */
+.original-price {
+  color: red;
+  text-decoration: line-through;
+  margin-right: 10px;
+}
+
 
 
 
