@@ -19,14 +19,14 @@ export function getParam(param) {
 }
 
 export function setClick(selector, callback) {
-  qs(selector).addEventListener("touchend", (event) => {
+  qs(selector).addEventListener('touchend', (event) => {
     event.preventDefault();
     callback();
   });
-  qs(selector).addEventListener("click", callback);
+  qs(selector).addEventListener('click', callback);
 }
 
-export function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear = false) {
+export function renderListWithTemplate(templateFn, parentElement, list, position = 'afterbegin', clear = false) {
   if (clear) {
     parentElement.innerHTML = ''; 
   }
@@ -35,13 +35,13 @@ export function renderListWithTemplate(templateFn, parentElement, list, position
 }
 
 export function updateCartCount() {
-  const cartItems = JSON.parse(localStorage.getItem("so-cart")) || [];
-  const cartCountElement = document.getElementById("cart-count");
+  const cartItems = JSON.parse(localStorage.getItem('so-cart')) || [];
+  const cartCountElement = document.getElementById('cart-count');
   cartCountElement.textContent = cartItems.length;
 }
 
 
-export function renderWithTemplate(template, parent, position = "afterbegin", clear = false, callback = null) {
+export function renderWithTemplate(template, parent, position = 'afterbegin', clear = false, callback = null) {
   if (clear) {
     parent.innerHTML = ''; 
   }
@@ -65,19 +65,19 @@ async function loadTemplate(templatePath) {
 
 export async function loadHeaderFooter() {
   try {
-    const headerTemplate = await loadTemplate("/partials/header.html");
-    const footerTemplate = await loadTemplate("/partials/footer.html");
+    const headerTemplate = await loadTemplate('/partials/header.html');
+    const footerTemplate = await loadTemplate('/partials/footer.html');
 
-    const headerElement = document.getElementById("main-header");
-    const footerElement = document.getElementById("main-footer");
+    const headerElement = document.getElementById('main-header');
+    const footerElement = document.getElementById('main-footer');
 
-    renderWithTemplate(headerTemplate, headerElement, "afterbegin", true, () => {
+    renderWithTemplate(headerTemplate, headerElement, 'afterbegin', true, () => {
       updateCartCount();
     });
 
-    renderWithTemplate(footerTemplate, footerElement, "afterbegin", true);
+    renderWithTemplate(footerTemplate, footerElement, 'afterbegin', true);
   } catch (error) {
-    console.error("Error loading header or footer:", error);
+    console.error('Error loading header or footer:', error);
   }
 }
 
