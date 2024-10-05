@@ -238,6 +238,32 @@ button {
   display: none;
 }
 
+
+
+/* Category Grid */
+.category-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.category-item {
+  border: 1px solid var(--light-grey);
+  padding-top : 15px;
+}
+
+
+.category-item img {
+  width: 100px;
+  height: 100px;
+}
+
+
+
+
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
