@@ -1,4 +1,4 @@
-const baseURL = 'http://server-nodejs.cit.byui.edu:3000/products/search/';
+const baseURL = 'https://wdd330-backend.onrender.com/products/search/';
 
 
 function convertToJson(res) {
