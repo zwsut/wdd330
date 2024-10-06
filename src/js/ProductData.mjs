@@ -1,6 +1,5 @@
 const baseURL = 'https://wdd330-backend.onrender.com/products/search/';
 
-
 function convertToJson(res) {
   if (res.ok) {
     return res.json();
@@ -11,19 +10,27 @@ function convertToJson(res) {
 
 export default class ProductData {
   constructor(category) {
-    // this.category = category;
-    // this.path = `../json/${this.category}.json`;
+    this.category = category;
   }
-  async getData(category) {
-    const response = await fetch(baseURL + category);
 
-
+  async getData() {
+    console.log('Fetching products for category:', this.category); // Check category value
+  
+    const response = await fetch(baseURL + this.category); // Fetch using the stored category
     const data = await convertToJson(response);
     return data.Result;
   }
+
   async findProductById(id) {
-    const response = await fetch(baseURL + `product/${id}`);
-    const data = await convertToJson(response);
-    return data.Result;
+    const products = await this.getData();
+
+    const product = products.find(product => product.Id === id);
+
+    if (!product) {
+      throw new Error(`Product with ID ${id} not found`);
+    }
+    
+    console.log(product);
+    return product;
   }
 }
