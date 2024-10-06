@@ -15,13 +15,13 @@ export default class ProductData {
     // this.path = `../json/${this.category}.json`;
   }
   async getData(category) {
-    const response = await fetch(`http://server-nodejs.cit.byui.edu:3000/products/search/${category}`);
-    
+    const response = await fetch(`/api/products/search/${category}`); // Use the proxy path
     const data = await convertToJson(response);
     return data.Result;
   }
+  
   async findProductById(id) {
-    const response = await fetch(baseURL + `product/${id}`);
+    const response = await fetch(`/api/product/${id}`); // Use the proxy path
     const data = await convertToJson(response);
     return data.Result;
   }
