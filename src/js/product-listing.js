@@ -5,11 +5,15 @@ import { loadHeaderFooter, getParam } from './utils.mjs';
 loadHeaderFooter();
 
 const category = getParam('category');
-// first create an instance of our ProductData class.
+console.log("Category:", category); // Ensure category is correct
+
 const dataSource = new ProductData();
-// then get the element we want the product list to render in
+// console.log("DataSource initialized", dataSource);
+
 const listElement = document.querySelector('.product-list');
-// then create an instance of our ProductList class and send it the correct information.
+// console.log("List Element found", listElement);
+
 const myList = new ProductListing(category, dataSource, listElement);
-// finally call the init method to show our products
+// console.log("Product listing instance created", myList);
+
 myList.init();

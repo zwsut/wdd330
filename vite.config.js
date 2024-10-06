@@ -3,7 +3,6 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   root: 'src/',
-
   build: {
     outDir: '../dist',
     rollupOptions: {
@@ -15,11 +14,13 @@ export default defineConfig({
       },
     },
   },
-  // This will ensure that the base path for your assets is correct
-  base: './',
-  
-  // Optional server configuration for better local development experience
   server: {
-    historyApiFallback: true, // Helps with development routing issues
-  },
+    proxy: {
+      '/api': {
+        target: 'http://server-nodejs.cit.byui.edu:3000',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
+  }
 });
