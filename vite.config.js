@@ -15,4 +15,11 @@ export default defineConfig({
       },
     },
   },
+  // This will ensure that the base path for your assets is correct
+  base: './',
+  
+  // Optional server configuration for better local development experience
+  server: {
+    historyApiFallback: true, // Helps with development routing issues
+  },
 });
