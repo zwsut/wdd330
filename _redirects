@@ -1,1 +1,2 @@
 /product-listing/* /product-listing/index.html 200
+/api/* http://server-nodejs.cit.byui.edu:3000/:splat 200

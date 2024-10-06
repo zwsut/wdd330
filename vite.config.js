@@ -19,8 +19,8 @@ export default defineConfig({
       '/api': {
         target: 'http://server-nodejs.cit.byui.edu:3000',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '')
-      }
-    }
-  }
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
+  },
 });
