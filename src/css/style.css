@@ -146,9 +146,7 @@ button {
   padding: 0.5em;
 }
 .product-list {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
+
   list-style-type: none;
   padding: 0;
 }
@@ -263,6 +261,69 @@ button {
   text-decoration: line-through;
   margin-right: 10px;
 }
+
+.checkout-button {
+  display: block;
+  padding: 10px 20px;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+/* Checkout form styles */
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checkout-form fieldset {
+  border: 1px solid var(--light-grey);
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.checkout-form legend {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.checkout-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.checkout-form input[type="text"] {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.checkout-button-form {
+  display: block;
+  padding: 10px 20px;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: 20px;
+}
+
+
+
 
 @media screen and (min-width: 500px) {
   body {
