@@ -1,4 +1,4 @@
-import ProductData from './ProductData.mjs';
+import ExternalServices from './ExternalServices.mjs';
 import ProductListing from './ProductList.mjs';
 import { loadHeaderFooter, getParam } from './utils.mjs';
 
@@ -12,7 +12,7 @@ if (!category) {
   const h1 = document.getElementById('categoryh1');
   h1.textContent = category.toUpperCase();
 
-  const dataSource = new ProductData(category);
+  const dataSource = new ExternalServices(category);
   console.log('DataSource initialized with category:', category);
 
   const listElement = document.querySelector('.product-list');
