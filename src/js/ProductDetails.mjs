@@ -1,6 +1,7 @@
 import { setLocalStorage, updateCartCount } from "./utils.mjs";
 
 function productDetailsTemplate(product) {
+  console.log(product)  
   return `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
     <h2 class="divider">${product.NameWithoutBrand}</h2>
     <img
