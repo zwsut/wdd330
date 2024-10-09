@@ -238,8 +238,6 @@ button {
   display: none;
 }
 
-
-
 /* Category Grid */
 .category-grid {
   display: grid;
@@ -251,9 +249,8 @@ button {
 
 .category-item {
   border: 1px solid var(--light-grey);
-  padding-top : 15px;
+  padding-top: 15px;
 }
-
 
 .category-item img {
   width: 100px;
@@ -266,10 +263,6 @@ button {
   text-decoration: line-through;
   margin-right: 10px;
 }
-
-
-
-
 
 @media screen and (min-width: 500px) {
   body {

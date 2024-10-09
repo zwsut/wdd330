@@ -5,11 +5,25 @@ import { loadHeaderFooter, getParam } from './utils.mjs';
 loadHeaderFooter();
 
 const category = getParam('category');
-// first create an instance of our ProductData class.
-const dataSource = new ProductData();
-// then get the element we want the product list to render in
-const listElement = document.querySelector('.product-list');
-// then create an instance of our ProductList class and send it the correct information.
-const myList = new ProductListing(category, dataSource, listElement);
-// finally call the init method to show our products
-myList.init();
+if (!category) {
+  console.error('Category is missing from the URL');
+} else {
+
+  const h1 = document.getElementById('categoryh1');
+  h1.textContent = category.toUpperCase();
+
+  const dataSource = new ProductData(category);
+  console.log('DataSource initialized with category:', category);
+
+  const listElement = document.querySelector('.product-list');
+  if (!listElement) {
+    console.error('Product list element not found');
+  } else {
+    console.log('List Element found', listElement);
+
+    const myList = new ProductListing(category, dataSource, listElement);
+    console.log('Product listing instance created with category:', category);
+
+    myList.init();
+  }
+}

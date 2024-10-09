@@ -10,7 +10,7 @@ export default class ProductListing {
     async init() {
       try {
         const list = await this.dataSource.getData(this.category);
-        console.log(list)
+        // console.log(list)
         // const filteredProducts = this.filterProducts(list);
         this.renderList(list);
       } catch (error) {
@@ -32,10 +32,10 @@ export default class ProductListing {
 
 
   export function productCardTemplate(product) {
-    console.log(product)
+    // console.log(product)
     return `
       <li class="product-card">
-        <a href="/product_pages/index.html?product=${product.Id}">
+        <a href="/product_pages/index.html?category=${product.Category}&product=${product.Id}">
           <img src="${product.Images.PrimaryMedium}" alt="Image of ${product.Name}">
           <h3 class="card__brand">${product.Brand.Name}</h3>
           <h2 class="card__name">${product.Name}</h2>

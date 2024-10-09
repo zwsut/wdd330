@@ -1,0 +1,21 @@
+{
+	"geolocation": {
+		"data": {
+			"city": "Bristol",
+			"country": {
+				"code": "US",
+				"name": "United States"
+			},
+			"subdivision": {
+				"code": "CT",
+				"name": "Connecticut"
+			},
+			"timezone": "America/New_York",
+			"latitude": 41.6853,
+			"longitude": -72.9296,
+			"postalCode": "06010"
+		},
+		"timestamp": 1728173000461
+	},
+	"siteId": "f4bbf76e-50b6-4af4-96b8-157963d96698"
+}
