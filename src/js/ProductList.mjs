@@ -32,7 +32,6 @@ export default class ProductListing {
 
 
   export function productCardTemplate(product) {
-    // console.log(product)
     return `
       <li class="product-card">
         <a href="/product_pages/index.html?category=${product.Category}&product=${product.Id}">
