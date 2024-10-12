@@ -122,7 +122,7 @@ export default class CheckoutProcess {
       try {
         const res = await services.checkout(json);
         console.log(res);
-        
+
         localStorage.removeItem(this.key);
         
         window.location.href = '/checkout/success.html';
