@@ -81,6 +81,53 @@ export async function loadHeaderFooter() {
   }
 }
 
+export function alertMessage(message, scroll = true) {
+  const existingAlert = document.querySelector('.alert-message');
+  if (existingAlert) {
+    existingAlert.remove();
+  }
+
+  const alertDiv = document.createElement('div');
+  alertDiv.classList.add('alert-message');
+  alertDiv.innerHTML = `
+    <p>${message}</p>
+    <span class="close-alert">&times;</span>
+  `;
+
+  alertDiv.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffcc00;
+    color: #333;
+    padding: 15px;
+    font-size: 16px;
+    text-align: center;
+    z-index: 1000;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  `;
+
+  alertDiv.querySelector('.close-alert').style.cssText = `
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+  `;
+
+  alertDiv.querySelector('.close-alert').addEventListener('click', () => {
+    alertDiv.remove();
+  });
+
+  const mainElement = document.querySelector('main');
+  if (mainElement) {
+    mainElement.prepend(alertDiv);
+  }
+
+  if (scroll) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
 
 
 

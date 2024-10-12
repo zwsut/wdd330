@@ -1,4 +1,4 @@
-import {  updateCartCount } from "./utils.mjs";
+import {  updateCartCount, alertMessage } from "./utils.mjs";
 
 function productDetailsTemplate(product) {
   return `<section class="product-detail">
@@ -61,7 +61,7 @@ export default class ProductDetails {
       this.product.quantity = 1;
       currentCart.push(this.product);
     }
-  
+    alertMessage('Product successfully added to your cart!');
     localStorage.setItem("so-cart", JSON.stringify(currentCart));
   
     updateCartCount();
