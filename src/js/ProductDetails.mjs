@@ -10,10 +10,14 @@ function productDetailsTemplate(product) {
       alt="${product.NameWithoutBrand}"
     />
     ${product.FinalPrice < product.SuggestedRetailPrice ? 
-      `<p class="product-card__price product-card__price--discounted">
+      `<div class="savings-container">
+      <p class="product-card__price product-card__price--discounted">
         <s class="original-price">$${product.SuggestedRetailPrice}</s> 
-        <span class="discounted-price">$${product.FinalPrice}</span>
-      </p>` : 
+        <span class="discounted-price">$${product.FinalPrice}</span> 
+      </p> 
+      </div>
+      <span class="savings" style="font-weight: bold;">You are saving: $${Math.floor(product.SuggestedRetailPrice - product.FinalPrice)}</span>` 
+      : 
       `<p class="product-card__price">$${product.FinalPrice}</p>`
     }
     <p class="product__color">${product.Colors[0].ColorName}</p>

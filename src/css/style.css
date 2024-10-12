@@ -324,8 +324,14 @@ button {
   margin-top: 20px;
 }
 
-
-
+.savings-container {
+  display: flex;
+  justify-content: space-between;
+}
+/* 
+.savings-container span,p,s {
+  display: block;
+} */
 
 @media screen and (min-width: 500px) {
   body {
