@@ -185,7 +185,7 @@ button {
   margin: auto;
 }
 
-.product-detail img {
+.product-detail__image  {
   width: 100%;
 }
 
@@ -328,10 +328,11 @@ button {
   display: flex;
   justify-content: space-between;
 }
-/* 
-.savings-container span,p,s {
-  display: block;
-} */
+
+.discount-flag  {
+  position: absolute;
+
+}
 
 @media screen and (min-width: 500px) {
   body {
