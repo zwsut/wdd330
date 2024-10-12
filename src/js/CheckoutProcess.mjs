@@ -1,4 +1,4 @@
-import { getLocalStorage } from './utils.mjs';
+import { getLocalStorage, alertMessage } from './utils.mjs';
 import ExternalServices from './ExternalServices.mjs';
 
 
@@ -95,10 +95,10 @@ export default class CheckoutProcess {
       const taxElement = document.querySelector('#tax');
       const orderTotalElement = document.querySelector('#orderTotal');
 
-      subtotalElement.textContent = this.itemTotal;
-      shippingElement.textContent = this.shipping;
-      taxElement.textContent = this.tax
-      orderTotalElement.textContent = this.orderTotal
+      subtotalElement.textContent = this.itemTotal.toFixed(2);
+      shippingElement.textContent = this.shipping.toFixed(2);
+      taxElement.textContent = this.tax.toFixed(2);
+      orderTotalElement.textContent = this.orderTotal.toFixed(2);
     }
 
 
@@ -112,11 +112,32 @@ export default class CheckoutProcess {
       json.tax = this.tax;
       json.shipping = this.shipping;
       json.items = packageItems(this.list);
+      // try {
+      //   const res = await services.checkout(json);
+      //   console.log(res);
+      // } catch (err) {
+      //   console.log(err);
+      // }
+      
       try {
         const res = await services.checkout(json);
         console.log(res);
+        
+        localStorage.removeItem(this.key);
+        
+        window.location.href = '/checkout/success.html';
       } catch (err) {
-        console.log(err);
+        console.error('Checkout failed:', err);
+
+        alertMessage('An error occurred during checkout. Please check your information and try again.');
+        
+        const errorElement = document.querySelector('#error-message');
+        if (errorElement) {
+          errorElement.textContent = 'An error occurred during checkout. Please try again or contact support at (555) 555-1234.';
+        }
+    
+        console.log('Detailed error:', err.message);
       }
+
     }
   }
