@@ -8,7 +8,6 @@ const category = getParam('category');
 if (!category) {
   console.error('Category is missing from the URL');
 } else {
-
   const h1 = document.getElementById('categoryh1');
   h1.textContent = category.toUpperCase();
 

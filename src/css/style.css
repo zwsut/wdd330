@@ -185,7 +185,7 @@ button {
   margin: auto;
 }
 
-.product-detail__image  {
+.product-detail__image {
   width: 100%;
 }
 
@@ -281,7 +281,6 @@ button {
   align-items: center;
 }
 
-
 /* Checkout form styles */
 
 .checkout-form {
@@ -306,7 +305,7 @@ button {
   margin-bottom: 5px;
 }
 
-.checkout-form input[type="text"] {
+.checkout-form input[type='text'] {
   width: 100%;
   padding: 5px;
   margin-bottom: 10px;
@@ -329,9 +328,8 @@ button {
   justify-content: space-between;
 }
 
-.discount-flag  {
+.discount-flag {
   position: absolute;
-
 }
 
 @media screen and (min-width: 500px) {
