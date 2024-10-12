@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/css/style.css" />
 
     <script src="../js/checkout.js" type="module"></script>
+    <script src="../js/utils.mjs" type="module"></script>
   </head>
 
   <body>
@@ -24,37 +25,37 @@
           <fieldset>
             <legend>Customer Information</legend>
             <label for="fname">First Name:</label>
-            <input type="text" id="fname" name="fname" required>
+            <input type="text" id="fname" name="fname" required pattern="[A-Za-z]+" title="First name must contain only letters">
             
             <label for="lname">Last Name:</label>
-            <input type="text" id="lname" name="lname" required>
+            <input type="text" id="lname" name="lname" required pattern="[A-Za-z]+" title="Last name must contain only letters">
           </fieldset>
 
           <fieldset>
             <legend>Address</legend>
             <label for="street">Street Address:</label>
-            <input type="text" id="street" name="street" required>
+            <input type="text" id="street" name="street" required title="Street address is required">
             
             <label for="city">City:</label>
-            <input type="text" id="city" name="city" required>
+            <input type="text" id="city" name="city" required title="City is required">
             
             <label for="state">State:</label>
-            <input type="text" id="state" name="state" required>
+            <input type="text" id="state" name="state" required title="State is required">
             
             <label for="zip">Zip Code:</label>
-            <input type="text" id="zip" name="zip" required>
+            <input type="text" id="zip" name="zip" required title="Zip code is required">
           </fieldset>
 
           <fieldset>
             <legend>Payment</legend>
             <label for="cardNumber">Credit Card Number:</label>
-            <input type="text" id="cardNumber" name="cardNumber" required>
+            <input type="text" id="cardNumber" name="cardNumber" required pattern="[0-9]{16}" title="Credit card number must be 16 digits">
             
             <label for="expiration">Expiration Date:</label>
-            <input type="text" id="expiration" name="expiration" required>
+            <input type="text" id="expiration" name="expiration" required pattern="[0-9]{2}/[0-9]{2}" title="Expiration date must be in the format MM/YY">
             
             <label for="code">Security Code:</label>
-            <input type="text" id="code" name="code" required>
+            <input type="text" id="code" name="code" required pattern="[0-9]{3}" title="Security code must be 3 digits">
           </fieldset>
 
           <button id="checkoutSubmit" class="checkout-button-form" type="submit">Place Order</button>

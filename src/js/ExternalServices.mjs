@@ -1,11 +1,13 @@
 const baseURL = import.meta.env.VITE_SERVER_URL
 
 
-function convertToJson(res) {
+async function convertToJson(res) {
+  let response = await res.json();
   if (res.ok) {
-    return res.json();
+    return response;
   } else {
-    throw new Error('Bad Response');
+    let errorMessage = JSON.stringify(response) || 'Unknown error'; 
+    throw { name: 'servicesError', message: errorMessage };
   }
 }
 
@@ -28,7 +30,6 @@ export default class ExternalServices {
 
 
   async checkout(payload) {
-    console.log(payload);
     const options = {
       method: 'POST',
       headers: {

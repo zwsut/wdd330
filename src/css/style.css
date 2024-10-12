@@ -324,6 +324,38 @@ button {
   margin-top: 20px;
 }
 
+#checkout-form input:invalid {
+  border: 2px solid red;
+}
+
+#checkout-form input:valid {
+  border: 2px solid green;
+}
+
+.thank-you-section {
+  text-align: center;
+  padding: 20px;
+  max-width: 500px;
+  margin: auto;
+
+}
+
+.alert-message {
+  background-color: var(--primary-color);
+  color: var(--dark-grey) ;
+  padding: 10px;
+  border-radius: 20px; 
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.alert-message span {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: var(--large-font);
+
+}
 
 
 
