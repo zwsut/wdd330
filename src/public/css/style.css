@@ -350,3 +350,16 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+@keyframes cart-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.cart-animate {
+  animation: cart-bounce 0.5s ease-in-out;
+}
