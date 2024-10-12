@@ -96,7 +96,7 @@ export function alertMessage(message, scroll = true) {
 
   alertDiv.style.cssText = `
     position: fixed;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 100%;
     background-color: #ffcc00;
