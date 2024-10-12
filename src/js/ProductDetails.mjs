@@ -61,15 +61,31 @@ export default class ProductDetails {
       this.product.quantity = 1;
       currentCart.push(this.product);
     }
-    alertMessage('Product successfully added to your cart!');
+
     localStorage.setItem("so-cart", JSON.stringify(currentCart));
-  
+
+    alertMessage('Product successfully added to your cart!');
+
+    this.animateCartButton();
+
     updateCartCount();
   }
-  
 
   renderProductDetails(selector) {
     const element = document.querySelector(selector);
     element.insertAdjacentHTML("afterBegin", productDetailsTemplate(this.product));
+  }
+
+  animateCartButton() {
+    const cartIcon = document.querySelector('#cartIcon');
+    if (cartIcon) {
+      cartIcon.classList.add('cart-animate');
+
+      setTimeout(() => {
+        cartIcon.classList.remove('cart-animate');
+      }, 500);
+    } else {
+      console.error('Cart icon not found!');
+    }
   }
 }
