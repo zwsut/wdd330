@@ -332,11 +332,6 @@ button {
   position: absolute;
 }
 
-.form {
-  padding: 1rem;
-  text-align: center;
-}
-
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
